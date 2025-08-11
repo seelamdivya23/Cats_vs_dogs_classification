@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="slideshow-container">
+
+        <!-- Slide 1: Prediction Text -->
+        <div class="mySlides fade">
+            <h2>Prediction: {{ label }}</h2>
+             <h3>Uploaded Image</h3>
+            <img src="/{{ user_image }}" alt="Uploaded Image">
+        </div>
+
+    <br>
+    <div style="text-align: center;">
+        <a href="/">⟵ Go Back</a>
+    </div>
+
+    <!-- Slideshow JS -->
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
